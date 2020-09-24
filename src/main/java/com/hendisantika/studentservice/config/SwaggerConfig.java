@@ -53,4 +53,18 @@ public class SwaggerConfig {
                 .consumes(Sets.newHashSet(APPLICATION_JSON_VALUE))
                 .apiInfo(V1_API_INFO);
     }
+
+    @Bean
+    public Docket swaggerPersonApi20() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("demorestapi-2.0")
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.hendisantika.studentservice.controller"))
+                .paths(PathSelectors.ant("/api/v2/**"))
+                .build()
+                //.pathMapping("/api/v2")
+                .produces(Sets.newHashSet(APPLICATION_JSON_VALUE))
+                .consumes(Sets.newHashSet(APPLICATION_JSON_VALUE))
+                .apiInfo(V2_API_INFO);
+    }
 }
