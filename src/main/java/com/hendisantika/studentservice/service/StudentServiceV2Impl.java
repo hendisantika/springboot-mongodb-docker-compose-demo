@@ -2,7 +2,7 @@ package com.hendisantika.studentservice.service;
 
 import com.hendisantika.studentservice.entity.Student;
 import com.hendisantika.studentservice.repository.StudentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -17,10 +17,10 @@ import java.util.Optional;
  * Time: 20.08
  */
 @Service("v2")
+@RequiredArgsConstructor
 public class StudentServiceV2Impl implements StudentService {
 
-    @Autowired
-    private StudentRepository studentRepository;
+    private final StudentRepository studentRepository;
 
     @Override
     public Iterable<Student> findAll() {
